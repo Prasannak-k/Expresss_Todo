@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #0d0d0d;
+    color: #e8e8e8;
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+    padding: 2.5rem 1.5rem;
+}
+
+header {
+    max-width: 900px;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid #2a2a2a;
+    padding-bottom: 1.25rem;
+}
+
+header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #c8f135;
+}
+
+header span {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.toolbar {
+    max-width: 900px;
+    margin: 0 auto 1.25rem;
+    display: flex;
+    gap: 0.6rem;
+}
+
+#searchInput {
+    flex: 1;
+    background: #161616;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    color: #e8e8e8;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    padding: 0.55rem 0.85rem;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+#searchInput:focus {
+    border-color: #c8f135;
+}
+
+#searchInput::placeholder {
+    color: #666;
+}
+
+.btn {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.55rem 1.1rem;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-add {
+    background: #c8f135;
+    color: #0d0d0d;
+    border-color: #c8f135;
+}
+
+.btn-add:hover {
+    opacity: 0.85;
+}
+
+.btn-edit {
+    background: transparent;
+    color: #ffaa33;
+    border-color: #ffaa33;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.65rem;
+}
+
+.btn-edit:hover {
+    background: #ffaa33;
+    color: #0d0d0d;
+}
+
+.btn-delete {
+    background: transparent;
+    color: #ff4d4d;
+    border-color: #ff4d4d;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.65rem;
+}
+
+.btn-delete:hover {
+    background: #ff4d4d;
+    color: #fff;
+}
+
+.btn-toggle {
+    background: transparent;
+    color: #c8f135;
+    border-color: #8faa22;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.65rem;
+}
+
+.btn-toggle:hover {
+    background: #c8f135;
+    color: #0d0d0d;
+}
+
+.table-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+}
+
+thead {
+    background: #161616;
+}
+
+thead th {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #666;
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+tbody tr {
+    border-bottom: 1px solid #2a2a2a;
+    transition: background 0.12s;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: #1c1c1c;
+}
+
+td {
+    padding: 0.75rem 1rem;
+    vertical-align: middle;
+}
+
+td:first-child {
+    color: #666;
+    font-size: 0.72rem;
+    width: 50px;
+}
+
+td.task-name {
+    word-break: break-word;
+}
+
+td.task-name.done {
+    text-decoration: line-through;
+    color: #666;
+}
+
+td.actions {
+    white-space: nowrap;
+}
+
+td.actions .btn + .btn {
+    margin-left: 0.35rem;
+}
+
+.badge {
+    display: inline-block;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 100px;
+}
+
+.badge.done {
+    background: #1a2e00;
+    color: #c8f135;
+}
+
+.badge.pending {
+    background: #2a1a00;
+    color: #ffaa33;
+}
+
+.empty-row td {
+    text-align: center;
+    color: #666;
+    padding: 2.5rem;
+    font-style: italic;
+}
+
+#toast {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: #161616;
+    border: 1px solid #2a2a2a;
+    font-size: 0.78rem;
+    padding: 0.65rem 1.1rem;
+    border-radius: 6px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+    z-index: 999;
+}
+
+#toast.show { opacity: 1; }
+#toast.ok   { border-color: #c8f135; color: #c8f135; }
+#toast.err  { border-color: #ff4d4d; color: #ff4d4d; }
+
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay.open {
+    display: flex;
+}
+
+.modal {
+    background: #161616;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    padding: 2rem;
+    width: min(420px, 92vw);
+}
+
+.modal h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+
+.modal label {
+    display: block;
+    font-size: 0.72rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.35rem;
+}
+
+.modal input[type="text"] {
+    width: 100%;
+    background: #0d0d0d;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    color: #e8e8e8;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.82rem;
+    padding: 0.6rem 0.85rem;
+    outline: none;
+    margin-bottom: 1rem;
+    transition: border-color 0.15s;
+}
+
+.modal input[type="text"]:focus {
+    border-color: #c8f135;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: flex-end;
+}
+
+.btn-primary {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.55rem 1.2rem;
+    background: #c8f135;
+    color: #0d0d0d;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    opacity: 0.85;
+}
+
+.btn-cancel {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.55rem 1rem;
+    background: transparent;
+    color: #666;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-cancel:hover {
+    border-color: #e8e8e8;
+    color: #e8e8e8;
+}

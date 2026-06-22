@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>To-Do Manager</title>
+
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <header>
+        <h1>//To-Do Manager</h1>
+        <span id="taskCount">loading...</span>
+    </header>
+
+    <div class="toolbar">
+        <input type="text" id="searchInput" placeholder="Filter tasks..." oninput="filterTable()"/>
+        <button class="btn btn-add" onclick="openAddModal()">+Add Task</button>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Task</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="taskTableBody">
+                <tr class ="empty-row">
+                    <td colspan="4">Loading Task ....</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    
+    <div class="overlay" id="modalOverlay">
+        <div class="modal">
+            <h2 id="modalTitle">Add task</h2>
+            <label for ="modalInput">Task Description</label>
+            <input type="text" id="modalInput" placeholder="Describe the task...">
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+                <button class="btn-primary" id="modalSubmit" onclick="submitModal()">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast"></div>
+
+    <script src = "script.js"></script>
+</body>
+</html>
