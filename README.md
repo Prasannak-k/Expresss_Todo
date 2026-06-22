@@ -9,7 +9,7 @@ A full-stack, RESTful task management application built to demonstrate backend A
 * **Search & Filter:** Instantly filter tasks by name using the built-in search bar.
 
 ##  Tech Stack
-* **Frontend:** HTML5, CSS3, Vanilla JavaScript
+* **Frontend:** HTML5, CSS3,  JavaScript
 * **Backend:** Node.js, Express.js
 * **Database:** MongoDB, Mongoose
 * **Environment Management:** dotenv
