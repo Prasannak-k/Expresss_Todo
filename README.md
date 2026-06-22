@@ -1,4 +1,4 @@
-# //To-Do Manager (MongoDB Edition)
+# To-Do Manager (MongoDB Edition)
 
 A full-stack, RESTful task management application built to demonstrate backend API development, database integration, and dynamic frontend rendering. 
 
